@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <!--Official Plugins-->
+        <!--Generate equals and hash code-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/bsm?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"
+                        userId="root"
+                        password="root">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.uestc.fff.information.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mybatis">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.uestc.fff.information.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="bsm" tableName="school" domainObjectName="SchoolInfo">
+            <generatedKey column="Sc_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="class" domainObjectName="ClassInfo">
+            <generatedKey column="C_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="exercise" domainObjectName="ExerciseInfo">
+            <generatedKey column="E_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="learningmaterials" domainObjectName="MateriasInfo">
+            <generatedKey column="L_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="major" domainObjectName="MajorInfo">
+            <generatedKey column="M_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="student" domainObjectName="StudentInfo">
+            <generatedKey column="S_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="teacher" domainObjectName="TeacherInfo">
+            <generatedKey column="T_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+        <table schema="bsm" tableName="teach" domainObjectName="TeachInfo">
+            <generatedKey column="T_id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
