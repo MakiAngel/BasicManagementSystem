@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uestc.fff.information.mapper.MajorListMapper">
+    <resultMap id="BaseResultMap" type="com.uestc.fff.information.domain.MajorInfo">
+        <id column="Mid" jdbcType="VARCHAR" property="mid" />
+        <result column="Sc_id" jdbcType="VARCHAR" property="scId" />
+        <result column="Mname" jdbcType="VARCHAR" property="mname" />
+        <result column="Minfo" jdbcType="VARCHAR" property="minfo" />
+    </resultMap>
+
+    <select id="selectBySchool" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from major
+    where Sc_id = #{scId,jdbcType=VARCHAR}
+    order by Mid
+  </select>
+
+</mapper>

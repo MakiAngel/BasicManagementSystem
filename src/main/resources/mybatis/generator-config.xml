@@ -65,5 +65,9 @@
             <generatedKey column="T_id" sqlStatement="select uuid()" identity="false"/>
         </table>
 
+        <table schema="bsm" tableName="user" domainObjectName="UserInfo">
+            <generatedKey column="Uid" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
     </context>
 </generatorConfiguration>

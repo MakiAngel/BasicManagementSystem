@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uestc.fff.information.mapper.TeacherListMapper">
+    <resultMap id="BaseResultMap" type="com.uestc.fff.information.domain.TeacherInfo">
+        <id column="Tid" jdbcType="VARCHAR" property="tid" />
+        <result column="Sc_id" jdbcType="VARCHAR" property="scId" />
+        <result column="Mid" jdbcType="VARCHAR" property="mid" />
+        <result column="Tname" jdbcType="VARCHAR" property="tname" />
+        <result column="Tage" jdbcType="VARCHAR" property="tage" />
+        <result column="Tphone" jdbcType="VARCHAR" property="tphone" />
+        <result column="Tmajor" jdbcType="VARCHAR" property="tmajor" />
+    </resultMap>
+    <select id="selectBySchool" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from teacher
+    where Sc_id = #{scId,jdbcType=VARCHAR}
+    order by Tid
+  </select>
+</mapper>

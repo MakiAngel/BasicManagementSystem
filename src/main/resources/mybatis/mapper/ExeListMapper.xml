@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uestc.fff.information.mapper.ExeListMapper">
+    <resultMap id="BaseResultMap" type="com.uestc.fff.information.domain.ExerciseInfo">
+        <id column="Eid" jdbcType="VARCHAR" property="eid" />
+        <result column="Cid" jdbcType="VARCHAR" property="cid" />
+        <result column="Ename" jdbcType="VARCHAR" property="ename" />
+        <result column="Einfo" jdbcType="VARCHAR" property="einfo" />
+        <result column="Eresult" jdbcType="VARCHAR" property="eresult" />
+        <result column="Eanswer" jdbcType="VARCHAR" property="eanswer" />
+    </resultMap>
+
+    <select id="selectByClass" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from exercise
+    where Cid = #{cid,jdbcType=VARCHAR}
+    order by Eid
+  </select>
+
+</mapper>

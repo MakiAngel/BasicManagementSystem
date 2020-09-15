@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uestc.fff.information.mapper.MateriasListMapper">
+    <resultMap id="BaseResultMap" type="com.uestc.fff.information.domain.MateriasInfo">
+        <id column="Lid" jdbcType="VARCHAR" property="lid" />
+        <result column="Cid" jdbcType="VARCHAR" property="cid" />
+        <result column="Lname" jdbcType="VARCHAR" property="lname" />
+        <result column="Material" jdbcType="VARCHAR" property="material" />
+        <result column="PPT" jdbcType="VARCHAR" property="ppt" />
+        <result column="Video" jdbcType="VARCHAR" property="video" />
+        <result column="Reference" jdbcType="VARCHAR" property="reference" />
+    </resultMap>
+
+    <select id="selectByClass" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from learningmaterials
+    where Cid = #{cid,jdbcType=VARCHAR}
+    order by Lid
+  </select>
+
+</mapper>
